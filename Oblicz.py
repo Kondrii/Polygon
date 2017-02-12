@@ -29,10 +29,3 @@ class Wielokat:
 		pole = abs(pole)*(0.5)
 		return pole
 
-k = Wielokat()
-
-k.ustaw_wierzcholki([[0,0],[1,5],[7,1],[4,5]])
-print k.oblicz_pole()
-	
-
-		
