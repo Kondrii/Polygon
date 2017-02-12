@@ -3,17 +3,21 @@ class Wielokat:
 		self.wierzcholki = []
 		self.iloscWierzcholkow = 0
 
-	def ustaw_wierzcholki(self):
-		ilosc = int(raw_input("Podaj ilosc wierzcholkow: "))
-		if (ilosc < 3):
+	def ustaw_wierzcholki(self, lista = []):
+		if (lista == []):
+			ilosc = int(raw_input("Podaj ilosc wierzcholkow: "))
+			self.wierzcholki = []
+			for i in range(ilosc):
+				x = float(raw_input("Podaj x {:d} wierzcholka: ".format(i+1)))
+				y = float(raw_input("Podaj y {:d} wierzcholka: ".format(i+1)))
+				self.wierzcholki.append([x,y])
+		else:
+			self.wierzcholki = lista
+		self.iloscWierzcholkow = len(self.wierzcholki)	
+		if (self.iloscWierzcholkow < 3):
 			print "Za malo wierzcholkow"
 			return -1
-		for i in range(ilosc):
-			x = float(raw_input("Podaj x {:d} wierzcholka: ".format(i+1)))
-			y = float(raw_input("Podaj y {:d} wierzcholka: ".format(i+1)))
-			self.wierzcholki.append([x,y])		
 
-		self.iloscWierzcholkow = len(self.wierzcholki)
 		return 1
 
 	def oblicz_pole(self):
@@ -27,7 +31,7 @@ class Wielokat:
 
 k = Wielokat()
 
-k.ustaw_wierzcholki()
+k.ustaw_wierzcholki([[0,0],[1,5],[7,1],[4,5]])
 print k.oblicz_pole()
 	
 
